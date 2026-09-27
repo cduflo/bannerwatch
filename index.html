@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BannerWatch — Does your cookie banner actually block trackers?</title>
+<meta name="description" content="76% of top US sites fire third-party trackers before visitors consent. Free scan shows you what your banner really does.">
+<style>
+  :root { --ink: #1a1a2e; --accent: #e63946; --bg: #f8f9fa; --card: #ffffff; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: var(--ink); background: var(--bg); line-height: 1.6; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 20px; }
+  header { padding: 64px 0 32px; text-align: center; }
+  header h1 { font-size: 2.4rem; line-height: 1.2; margin-bottom: 16px; }
+  header h1 span { color: var(--accent); }
+  header p.sub { font-size: 1.2rem; color: #555; max-width: 600px; margin: 0 auto 32px; }
+  .scanbox { background: var(--card); border-radius: 12px; padding: 32px; box-shadow: 0 4px 24px rgba(0,0,0,.08); text-align: center; margin-bottom: 48px; }
+  .scanbox h2 { margin-bottom: 8px; }
+  .scanbox p { color: #555; margin-bottom: 20px; }
+  .scanbox form { display: flex; flex-direction: column; gap: 12px; max-width: 440px; margin: 0 auto; }
+  .scanbox input { padding: 14px 16px; font-size: 1rem; border: 1px solid #ddd; border-radius: 8px; }
+  .scanbox button { padding: 14px; font-size: 1.05rem; font-weight: 700; background: var(--accent); color: #fff; border: none; border-radius: 8px; cursor: pointer; }
+  .scanbox button:hover { background: #c1121f; }
+  .scanbox small { color: #888; }
+  section { margin-bottom: 48px; }
+  section h2 { font-size: 1.5rem; margin-bottom: 16px; }
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; margin: 24px 0; }
+  .stat { background: var(--card); border-radius: 10px; padding: 20px; text-align: center; box-shadow: 0 2px 12px rgba(0,0,0,.05); }
+  .stat b { display: block; font-size: 1.9rem; color: var(--accent); }
+  .stat span { font-size: .9rem; color: #555; }
+  .steps { display: grid; gap: 12px; }
+  .step { background: var(--card); border-radius: 10px; padding: 18px 20px; box-shadow: 0 2px 12px rgba(0,0,0,.05); }
+  .step b { color: var(--accent); }
+  .tiers { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 600px) { .tiers { grid-template-columns: 1fr; } }
+  .tier { background: var(--card); border-radius: 12px; padding: 28px; box-shadow: 0 2px 12px rgba(0,0,0,.05); text-align: center; border: 2px solid transparent; }
+  .tier.agency { border-color: var(--ink); }
+  .tier h3 { margin-bottom: 4px; }
+  .tier .price { font-size: 2rem; font-weight: 800; margin: 8px 0; }
+  .tier .price span { font-size: 1rem; font-weight: 400; color: #777; }
+  .tier ul { list-style: none; text-align: left; margin: 16px 0 20px; font-size: .95rem; }
+  .tier ul li { margin-bottom: 8px; padding-left: 4px; }
+  .tier ul li::before { content: "✓ "; color: var(--accent); font-weight: 700; }
+  .tier a.btn { display: inline-block; padding: 12px 28px; border-radius: 8px; font-weight: 700; text-decoration: none; background: var(--ink); color: #fff; }
+  .tier.agency a.btn { background: var(--accent); }
+  details { background: var(--card); border-radius: 8px; padding: 16px 20px; margin-bottom: 10px; box-shadow: 0 2px 8px rgba(0,0,0,.04); }
+  summary { font-weight: 700; cursor: pointer; }
+  footer { text-align: center; padding: 32px 0 48px; color: #888; font-size: .85rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>Your cookie banner might be <span>lying to you.</span></h1>
+    <p class="sub">76% of top US sites fire third-party trackers before visitors consent. We watch your site continuously and prove your banner keeps its promises — before a demand letter does.</p>
+  </header>
+
+  <div class="scanbox" id="scan">
+    <h2>Get your free banner-vs-reality scan</h2>
+    <p>We check your site for pre-consent trackers and opt-out failures, and send you an evidence-grade report. Free during beta.</p>
+    <!-- Wired 2026-09-27: Google Form "BannerWatch — Free Scan Request" -->
+    <form action="https://forms.gle/UFMtxS6YXgiDrbX4A" method="get" target="_blank">
+      <input type="url" name="entry.url" placeholder="https://yoursite.com" required>
+      <input type="email" name="entry.email" placeholder="you@company.com" required>
+      <button type="submit">Scan my site free</button>
+    </form>
+    <small>No CMP rip-and-replace. No sales call. Report within 48 hours.</small>
+  </div>
+
+  <section>
+    <h2>The problem is bigger than the banner</h2>
+    <div class="stats">
+      <div class="stat"><b>76%</b><span>of top-100 US sites fire trackers before consent (our scan, Sep 2026)</span></div>
+      <div class="stat"><b>8/8</b><span>tested sites kept tracking despite Global Privacy Control opt-out</span></div>
+      <div class="stat"><b>$1.1M</b><span>CPPA fine against PlayOn! Sports — ordered to run quarterly tracker scans</span></div>
+      <div class="stat"><b>4,300+</b><span>website wiretapping lawsuits filed since 2022</span></div>
+    </div>
+    <p>A banner that displays but doesn't block is, per one agency's audit work, "arguably worse than having no banner at all" — it's documented evidence you knew and didn't fix it. CMPs deploy rules; they don't independently audit them.</p>
+  </section>
+
+  <section>
+    <h2>How it works</h2>
+    <div class="steps">
+      <div class="step"><b>1. We scan like a plaintiff would.</b> Continuous monitoring detects third-party trackers firing before consent, after decline, and despite GPC opt-out signals.</div>
+      <div class="step"><b>2. You get evidence-grade reports.</b> Timestamped, diffed against previous scans, ready to hand to counsel, auditors, or the CPPA.</div>
+      <div class="step"><b>3. You get alerted on drift.</b> New tag, new tracker, banner misconfiguration — you know before it's a lawsuit.</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Pricing</h2>
+    <div class="tiers">
+      <div class="tier">
+        <h3>Solo</h3>
+        <div class="price">$299<span>/mo</span></div>
+        <ul>
+          <li>1 website, continuous monitoring</li>
+          <li>Pre-consent &amp; GPC failure detection</li>
+          <li>Evidence-grade reports + change history</li>
+          <li>Email alerts on drift</li>
+        </ul>
+        <a class="btn" href="https://forms.gle/UFMtxS6YXgiDrbX4A?tier=solo" target="_blank">Join waitlist — Solo</a>
+      </div>
+      <div class="tier agency">
+        <h3>Agency</h3>
+        <div class="price">$799<span>/mo</span></div>
+        <ul>
+          <li>20 client sites, continuous monitoring</li>
+          <li>White-label client-ready PDF reports</li>
+          <li>Multi-client dashboard</li>
+          <li>Attach to retainers as a line item</li>
+        </ul>
+        <a class="btn" href="https://forms.gle/UFMtxS6YXgiDrbX4A?tier=agency" target="_blank">Join waitlist — Agency</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>FAQ</h2>
+    <details><summary>Does this replace our CMP (OneTrust, Cookiebot…)?</summary>
+      <p>No. We don't replace your CMP — we watch it. We're the independent auditor that proves your banner does what it promises.</p></details>
+    <details><summary>What laws does this cover?</summary>
+      <p>US state privacy laws: CIPA wiretapping exposure (§631), CCPA/CPRA opt-out and Global Privacy Control handling across the 12 states that mandate it. EU support (GDPR/TCF) is on the roadmap.</p></details>
+    <details><summary>Who is this for?</summary>
+      <p>Mid-market companies with real lawsuit exposure, and agencies managing client sites who want to productize compliance as a retainer.</p></details>
+    <details><summary>What do I get in the free scan?</summary>
+      <p>A one-time report: every third-party tracker firing on your site before consent, opt-out/GPC behavior, and the exact mismatches a plaintiff's scanner would find. Delivered within 48 hours during beta.</p></details>
+  </section>
+
+  <footer>
+    BannerWatch — continuous banner-vs-reality monitoring. Currently in private beta.
+  </footer>
+
+</div>
+</body>
+</html>
