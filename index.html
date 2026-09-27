@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BannerWatch — Does your cookie banner actually block trackers?</title>
-<meta name="description" content="76% of top US sites fire third-party trackers before visitors consent. Free scan shows you what your banner really does.">
+<meta name="description" content="76% of top-100 US sites load third-party trackers before visitors touch the banner. 98% ignore Global Privacy Control opt-outs. Free scan shows what your banner really does.">
 <style>
   :root { --ink: #1a1a2e; --accent: #e63946; --bg: #f8f9fa; --card: #ffffff; }
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -28,6 +28,8 @@
   .stat { background: var(--card); border-radius: 10px; padding: 20px; text-align: center; box-shadow: 0 2px 12px rgba(0,0,0,.05); }
   .stat b { display: block; font-size: 1.9rem; color: var(--accent); }
   .stat span { font-size: .9rem; color: #555; }
+  .method { font-size: .8rem; color: #888; margin-top: 16px; }
+  .method code { font-size: .75rem; }
   .steps { display: grid; gap: 12px; }
   .step { background: var(--card); border-radius: 10px; padding: 18px 20px; box-shadow: 0 2px 12px rgba(0,0,0,.05); }
   .step b { color: var(--accent); }
@@ -53,7 +55,7 @@
 
   <header>
     <h1>Your cookie banner might be <span>lying to you.</span></h1>
-    <p class="sub">76% of top US sites fire third-party trackers before visitors consent. We watch your site continuously and prove your banner keeps its promises — before a demand letter does.</p>
+    <p class="sub">76% of top-100 US sites load third-party trackers before the visitor ever touches the banner. We watch your site continuously and prove your banner keeps its promises — before a demand letter does.</p>
   </header>
 
   <div class="scanbox" id="scan">
@@ -71,12 +73,13 @@
   <section>
     <h2>The problem is bigger than the banner</h2>
     <div class="stats">
-      <div class="stat"><b>76%</b><span>of top-100 US sites fire trackers before consent (our scan, Sep 2026)</span></div>
-      <div class="stat"><b>8/8</b><span>tested sites kept tracking despite Global Privacy Control opt-out</span></div>
+      <div class="stat"><b>76%</b><span>of top-100 US sites load trackers on a cold visit — before any consent interaction (our scan, Sep 2026)</span></div>
+      <div class="stat"><b>98%</b><span>served an identical tracker payload with and without a Global Privacy Control opt-out — the opt-out changed nothing (60 sites, Sep 2026)</span></div>
       <div class="stat"><b>$1.1M</b><span>CPPA fine against PlayOn! Sports — ordered to run quarterly tracker scans</span></div>
-      <div class="stat"><b>4,300+</b><span>website wiretapping lawsuits filed since 2022</span></div>
+      <div class="stat"><b>~4,000</b><span>CIPA website-tracking lawsuits filed, most since 2024</span></div>
     </div>
-    <p>A banner that displays but doesn't block is, per one agency's audit work, "arguably worse than having no banner at all" — it's documented evidence you knew and didn't fix it. CMPs deploy rules; they don't independently audit them.</p>
+    <p class="method">Methodology: cold-load scans via the public urlscan corpus (n=80); GPC test fetched homepages with and without the <code>Sec-GPC: 1</code> header and compared tracker domains in the served HTML (n=60). Static HTML misses JS-injected trackers, so these are lower bounds.</p>
+    <p>A banner that displays but doesn't block may be worse than no banner at all — it's documented evidence you knew about the tracking and didn't stop it. Your CMP deploys the rules. BannerWatch independently verifies they work.</p>
   </section>
 
   <section>
@@ -121,7 +124,7 @@
     <details><summary>Does this replace our CMP (OneTrust, Cookiebot…)?</summary>
       <p>No. We don't replace your CMP — we watch it. We're the independent auditor that proves your banner does what it promises.</p></details>
     <details><summary>What laws does this cover?</summary>
-      <p>US state privacy laws: CIPA wiretapping exposure (§631), CCPA/CPRA opt-out and Global Privacy Control handling across the 12 states that mandate it. EU support (GDPR/TCF) is on the roadmap.</p></details>
+      <p>US state privacy laws: CIPA wiretapping exposure (§631), CCPA/CPRA opt-out and Global Privacy Control handling in states that recognize it. EU support (GDPR/TCF) is on the roadmap.</p></details>
     <details><summary>Who is this for?</summary>
       <p>Mid-market companies with real lawsuit exposure, and agencies managing client sites who want to productize compliance as a retainer.</p></details>
     <details><summary>What do I get in the free scan?</summary>
