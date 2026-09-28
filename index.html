@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BannerWatch — Does your cookie banner actually block trackers?</title>
-<meta name="description" content="76% of top-100 US sites load third-party trackers before visitors touch the banner. 98% ignore Global Privacy Control opt-outs. Free scan shows what your banner really does.">
+<meta name="description" content="In our Sep 2026 probe, 60% of analyzable sites served a known tracker before any consent interaction. 59 of 60 served the same tracker set with and without a GPC opt-out. Free scan shows what your banner really does.">
 <style>
   :root { --ink: #1a1a2e; --accent: #e63946; --bg: #f8f9fa; --card: #ffffff; }
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -55,38 +55,38 @@
 
   <header>
     <h1>Your cookie banner might be <span>lying to you.</span></h1>
-    <p class="sub">76% of top-100 US sites load third-party trackers before the visitor ever touches the banner. We watch your site continuously and prove your banner keeps its promises — before a demand letter does.</p>
+    <p class="sub">In our Sep 2026 probe, 48 of 80 analyzable sites (60%) loaded a known third-party tracker before the visitor ever touched the banner. We watch your site continuously and verify your banner keeps its promises.</p>
   </header>
 
   <div class="scanbox" id="scan">
     <h2>Get your free banner-vs-reality scan</h2>
-    <p>We check your site for pre-consent trackers and opt-out failures, and send you an evidence-grade report. Free during beta.</p>
+    <p>We check your site for pre-consent trackers and opt-out failures, and send you a timestamped report. Free during beta.</p>
     <!-- Wired 2026-09-27: Google Form "BannerWatch — Free Scan Request" -->
     <form action="https://forms.gle/UFMtxS6YXgiDrbX4A" method="get" target="_blank">
       <input type="url" name="entry.url" placeholder="https://yoursite.com" required>
       <input type="email" name="entry.email" placeholder="you@company.com" required>
       <button type="submit">Scan my site free</button>
     </form>
-    <small>No CMP rip-and-replace. No sales call. Report within 48 hours.</small>
+    <small>No CMP rip-and-replace. No sales call.</small>
   </div>
 
   <section>
     <h2>The problem is bigger than the banner</h2>
     <div class="stats">
-      <div class="stat"><b>76%</b><span>of top-100 US sites load trackers on a cold visit — before any consent interaction (our scan, Sep 2026)</span></div>
-      <div class="stat"><b>98%</b><span>served an identical tracker payload with and without a Global Privacy Control opt-out — the opt-out changed nothing (60 sites, Sep 2026)</span></div>
-      <div class="stat"><b>$1.1M</b><span>CPPA fine against PlayOn! Sports — ordered to run quarterly tracker scans</span></div>
-      <div class="stat"><b>~4,000</b><span>CIPA website-tracking lawsuits filed, most since 2024</span></div>
+      <div class="stat"><b>60%</b><span>of analyzable sites served a known cold-load tracker before any consent interaction — 48 of 80 (our scan, Sep 2026)</span></div>
+      <div class="stat"><b>59/60</b><span>served the same tracker-domain set in initial HTML with and without a GPC opt-out signal (Sep 2026)</span></div>
+      <div class="stat"><b>$1.1M</b><span>CPPA fine against PlayOn! Sports (Feb 2026) — deficient opt-outs, unhonored preference signals, mandated quarterly tracking-tech audits</span></div>
+      <div class="stat"><b>~4,000</b><span>pen-register suits under CIPA § 638.51 surged 600 → ~4,000 (Feb 2025–Aug 2026). CA's SB 690 ends that private right of action Jan 2027 — the surviving § 631 pre-consent claims are exactly what we detect</span></div>
     </div>
-    <p class="method">Methodology: cold-load scans via the public urlscan corpus (n=80); GPC test fetched homepages with and without the <code>Sec-GPC: 1</code> header and compared tracker domains in the served HTML (n=60). Static HTML misses JS-injected trackers, so these are lower bounds.</p>
+    <p class="method">Methodology: cold-load scans via the public urlscan corpus (99 rows, 80 analyzable); GPC test fetched 100 homepages twice — with and without the <code>Sec-GPC: 1</code> header — and compared tracker-domain sets in the served HTML (60 analyzable). Static HTML misses JS-injected trackers, so these are lower bounds on tracking served.</p>
     <p>A banner that displays but doesn't block may be worse than no banner at all — it's documented evidence you knew about the tracking and didn't stop it. Your CMP deploys the rules. BannerWatch independently verifies they work.</p>
   </section>
 
   <section>
     <h2>How it works</h2>
     <div class="steps">
-      <div class="step"><b>1. We scan like a plaintiff would.</b> Continuous monitoring detects third-party trackers firing before consent, after decline, and despite GPC opt-out signals.</div>
-      <div class="step"><b>2. You get evidence-grade reports.</b> Timestamped, diffed against previous scans, ready to hand to counsel, auditors, or the CPPA.</div>
+      <div class="step"><b>1. We scan like a plaintiff would.</b> Continuous monitoring detects third-party trackers served before consent, after decline, and despite GPC opt-out signals.</div>
+      <div class="step"><b>2. You get timestamped reports.</b> Diffed against previous scans, ready to hand to counsel or auditors.</div>
       <div class="step"><b>3. You get alerted on drift.</b> New tag, new tracker, banner misconfiguration — you know before it's a lawsuit.</div>
     </div>
   </section>
@@ -100,7 +100,7 @@
         <ul>
           <li>1 website, continuous monitoring</li>
           <li>Pre-consent &amp; GPC failure detection</li>
-          <li>Evidence-grade reports + change history</li>
+          <li>Timestamped reports + change history</li>
           <li>Email alerts on drift</li>
         </ul>
         <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLScAPrkOM2KEsyMuFIy32QDxvTRU__96MVHTGLrT47ic5AH4cg/viewform?usp=pp_url&entry.735192707=Solo+%E2%80%94+$299/mo+(1+site)" target="_blank">Join waitlist — Solo</a>
@@ -128,7 +128,7 @@
     <details><summary>Who is this for?</summary>
       <p>Mid-market companies with real lawsuit exposure, and agencies managing client sites who want to productize compliance as a retainer.</p></details>
     <details><summary>What do I get in the free scan?</summary>
-      <p>A one-time report: every third-party tracker firing on your site before consent, opt-out/GPC behavior, and the exact mismatches a plaintiff's scanner would find. Delivered within 48 hours during beta.</p></details>
+      <p>A one-time report: every third-party tracker served on your site before consent, opt-out/GPC behavior, and the mismatches a plaintiff's scanner would find. Beta capacity is limited — we'll reach out with timing after you request a scan.</p></details>
   </section>
 
   <footer>
